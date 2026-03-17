@@ -3,128 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash Kumar | Full-Stack Developer & Systems Modernizer</title>
-    <meta name="description" content="Portfolio of Akash Kumar. Specializing in PHP, SQL, and modernizing legacy institutional web platforms.">
+    <title>Akash Kumar | Frontend & CMS Developer</title>
+    <meta name="description" content="Portfolio of Akash Kumar. Specializing in Frontend Design, CMS, and PHP development.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Base Reset & Variables */
+        /* Minimalist Variables */
         :root {
             --slate-900: #0f172a;
-            --slate-700: #334155;
-            --slate-500: #64748b;
-            --slate-100: #f1f5f9;
-            --bg-color: #f8fafc;
-            --accent-color: #0ea5e9; /* Professional Blue */
+            --slate-600: #475569;
+            --slate-400: #94a3b8;
+            --bg-color: #ffffff;
+            --section-bg: #f8fafc;
+            --accent: #0f172a; /* Monochromatic accent for minimalism */
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--slate-700); line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--slate-900); }
-        a { text-decoration: none; color: inherit; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--slate-600); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--slate-900); font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
 
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; font-family: 'Inter', sans-serif; }
-        .logo span { color: var(--accent-color); }
-        .nav-links { display: flex; gap: 2rem; font-weight: 600; font-size: 0.95rem; }
-        .nav-links a:hover { color: var(--accent-color); transition: 0.2s; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 5%; background: var(--bg-color); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 600; font-size: 1.2rem; letter-spacing: -0.5px; font-family: 'Inter', sans-serif; color: var(--slate-900); }
+        .nav-links { display: flex; gap: 2.5rem; font-weight: 500; font-size: 0.9rem; color: var(--slate-600); }
+        .nav-links a:hover { color: var(--slate-900); }
 
         /* Hero Section */
-        .hero { padding: 8rem 5% 6rem; text-align: center; max-width: 900px; margin: 0 auto; }
-        .hero-badge { display: inline-block; background: var(--slate-100); color: var(--slate-900); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero p { font-size: 1.2rem; color: var(--slate-500); margin-bottom: 2.5rem; }
-        .btn-primary { background: var(--slate-900); color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; transition: 0.3s; display: inline-block; }
-        .btn-primary:hover { background: var(--accent-color); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .hero { padding: 10rem 5% 8rem; text-align: center; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero p { font-size: 1.15rem; color: var(--slate-600); margin-bottom: 3rem; font-weight: 300; }
+        
+        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: var(--slate-900); color: white; padding: 0.9rem 2.5rem; border-radius: 4px; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+        .btn-primary:hover { background: #000; transform: translateY(-2px); }
+        .btn-secondary { background: white; color: var(--slate-900); border: 1px solid #e2e8f0; padding: 0.9rem 2.5rem; border-radius: 4px; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+        .btn-secondary:hover { border-color: var(--slate-900); transform: translateY(-2px); }
 
-        /* Skills/Arsenal Section */
-        .skills { background: white; padding: 5rem 5%; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
-        .skills-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1px)); gap: 2rem; }
-        .skill-card { padding: 2rem; border: 1px solid #e2e8f0; border-radius: 12px; background: var(--bg-color); }
-        .skill-card h3 { font-family: 'Inter', sans-serif; font-size: 1.2rem; margin-bottom: 1rem; color: var(--slate-900); }
-        .skill-list { list-style: none; color: var(--slate-500); }
-        .skill-list li { margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; }
-        .skill-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent-color); font-weight: bold; }
+        /* Expertise Section */
+        .expertise { padding: 8rem 5%; background: var(--section-bg); }
+        .section-header { text-align: center; margin-bottom: 5rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-header p { color: var(--slate-400); font-weight: 300; }
+        
+        .skills-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1px)); gap: 3rem; }
+        .skill-card { padding: 3rem; background: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease; }
+        .skill-card:hover { transform: translateY(-5px); }
+        .skill-card h3 { font-family: 'Inter', sans-serif; font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--slate-900); font-weight: 500; }
+        .skill-list { list-style: none; color: var(--slate-600); font-size: 0.95rem; font-weight: 300; }
+        .skill-list li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
+        .skill-list li::before { content: "—"; position: absolute; left: 0; color: var(--slate-400); font-weight: 300; }
 
         /* Projects Section */
-        .projects { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1px)); gap: 2.5rem; justify-content: center; }
+        .projects { padding: 8rem 5%; max-width: 1200px; margin: 0 auto; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1px)); gap: 4rem; justify-content: center; }
         
-        .project-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-        .project-img-container { height: 240px; overflow: hidden; border-bottom: 1px solid #e2e8f0; }
+        .project-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.4s ease; display: flex; flex-direction: column; border: 1px solid #f1f5f9; }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .project-img-container { height: 280px; overflow: hidden; background: #f8fafc; }
         .project-img-container img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-        .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .tags { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-        .tag { font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; }
-        .tag-blue { background: #e0f2fe; color: #0284c7; }
-        .tag-green { background: #dcfce7; color: #16a34a; }
-        .project-content h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
-        .project-content p { color: var(--slate-500); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+        .project-content { padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        
+        .tags { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tag { font-size: 0.7rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 4px; background: var(--section-bg); color: var(--slate-600); letter-spacing: 0.5px; text-transform: uppercase; }
+        
+        .project-content h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .project-content p { color: var(--slate-600); font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1; font-weight: 300; }
+        .project-link { font-size: 0.9rem; font-weight: 500; color: var(--slate-900); border-bottom: 1px solid var(--slate-900); padding-bottom: 2px; align-self: flex-start; transition: opacity 0.3s; }
+        .project-link:hover { opacity: 0.6; }
 
         /* Contact Section */
-        .contact { background: var(--slate-900); color: white; padding: 6rem 5%; text-align: center; }
-        .contact h2 { color: white; font-size: 2.5rem; margin-bottom: 1rem; }
-        .contact p { color: #94a3b8; max-width: 600px; margin: 0 auto 2rem; }
-        .btn-outline { background: transparent; color: white; border: 2px solid white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; transition: 0.3s; display: inline-block; }
-        .btn-outline:hover { background: white; color: var(--slate-900); }
+        .contact { background: white; padding: 8rem 5%; text-align: center; border-top: 1px solid #f1f5f9; }
+        .contact-box { max-width: 600px; margin: 0 auto; padding: 4rem 2rem; background: var(--section-bg); border-radius: 8px; }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .contact p { color: var(--slate-400); margin-bottom: 3rem; font-weight: 300; }
+        
+        .contact-details { display: flex; flex-direction: column; gap: 1.5rem; font-size: 1.1rem; color: var(--slate-900); font-weight: 400; }
+        .contact-item span { display: block; font-size: 0.8rem; color: var(--slate-400); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.2rem; font-weight: 500; }
 
         /* Footer */
-        footer { background: #020617; color: #64748b; text-align: center; padding: 2rem; font-size: 0.9rem; }
+        footer { background: white; color: var(--slate-400); text-align: center; padding: 3rem; font-size: 0.85rem; font-weight: 300; }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .nav-links { display: none; /* Add a hamburger menu later if needed */ }
+            .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
-            .hero { padding: 5rem 5% 3rem; }
+            .hero { padding: 6rem 5% 4rem; }
+            .expertise, .projects, .contact { padding: 5rem 5%; }
+            .project-grid { grid-template-columns: 1fr; }
+            .skills-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">Akash<span>Kumar.</span></a>
+        <a href="#" class="logo">Akash Kumar.</a>
         <div class="nav-links">
             <a href="#expertise">Expertise</a>
-            <a href="#projects">Engineering</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-badge">Systems Modernizer & Full-Stack Developer</div>
-        <h1>Bridging legacy architecture with modern cloud infrastructure.</h1>
-        <p>I specialize in engineering robust backend systems, optimizing relational databases, and transforming institutional data into scalable, high-performance web applications.</p>
-        <a href="#projects" class="btn-primary">View My Work</a>
+        <h1>Crafting seamless front-end experiences & robust CMS backends.</h1>
+        <p>I specialize in building clean, responsive interfaces and architecting data-driven web applications using modern UI principles and powerful PHP logic.</p>
+        <div class="btn-group">
+            <a href="#projects" class="btn-primary">View Projects</a>
+            <a href="https://drive.google.com/file/d/1Lp0oJucUwE5qHzgH0SekwQneIoDZdWjE/view?usp=drivesdk" target="_blank" class="btn-secondary">Download Resume</a>
+        </div>
     </header>
 
-    <section id="expertise" class="skills">
+    <section id="expertise" class="expertise">
         <div class="section-header">
-            <h2>Technical Arsenal</h2>
+            <h2>Core Competencies</h2>
+            <p>Specialized in digital architecture</p>
         </div>
         <div class="skills-container">
             <div class="skill-card">
-                <h3>Backend & Data Systems</h3>
+                <h3>Frontend Engineering</h3>
                 <ul class="skill-list">
-                    <li>PHP 8.x & Legacy PHP Maintenance</li>
-                    <li>MySQL / Relational Database Design</li>
-                    <li>REST API Development & Integration</li>
-                    <li>Data Security & Sanitization</li>
+                    <li>React.js & Next.js</li>
+                    <li>Modern JavaScript (ES6+)</li>
+                    <li>HTML5, CSS3, & Bootstrap 5</li>
+                    <li>Minimalist UI/UX Design</li>
+                    <li>Responsive Web Architectures</li>
                 </ul>
             </div>
             <div class="skill-card">
-                <h3>Modern Frontend</h3>
+                <h3>Backend & CMS</h3>
                 <ul class="skill-list">
-                    <li>React & Next.js</li>
-                    <li>JavaScript (ES6+) & jQuery</li>
-                    <li>HTML5, CSS3, Bootstrap 5</li>
-                    <li>Responsive UI/UX Engineering</li>
+                    <li>PHP 8.x Development</li>
+                    <li>Custom CMS Architecture</li>
+                    <li>MySQL Database Management</li>
+                    <li>RESTful API Integration</li>
+                    <li>Legacy Code Modernization</li>
                 </ul>
             </div>
         </div>
@@ -132,8 +149,7 @@
 
     <section id="projects" class="projects">
         <div class="section-header">
-            <h2>Featured Project</h2>
-            <p style="color: var(--slate-500); max-width: 600px; margin: 0 auto;">Production-grade applications focusing on live data integration, institutional archiving, and secure backend architectures.</p>
+            <h2>Projects Built in PHP</h2>
         </div>
 
         <div class="project-grid">
@@ -143,14 +159,13 @@
                 </div>
                 <div class="project-content">
                     <div class="tags">
-                        <span class="tag tag-blue">PHP </span>
-                        <span class="tag tag-green">REST API</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Frontend UI</span>
                     </div>
                     <h3>NexusNews: Live Intelligence</h3>
-                    <p>A production-grade news aggregator consuming live external REST APIs. Engineered with dynamic routing, data sanitization protocols, and an automated fault-tolerance fallback system.</p>
-                    <div>
-                        <a href="https://nexus-news-rho.vercel.app/" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Live System &rarr;</a>
-                    </div>
+                    <p>A production-grade news aggregator consuming live external REST APIs. Built to seamlessly merge a beautiful frontend experience with dynamic PHP backend routing and data sanitization.</p>
+                    <a href="https://nexus-news-rho.vercel.app/" target="_blank" class="project-link">View Application &rarr;</a>
                 </div>
             </article>
 
@@ -160,29 +175,42 @@
                 </div>
                 <div class="project-content">
                     <div class="tags">
-                        <span class="tag tag-blue">Backend Logic</span>
-                        <span class="tag tag-green">Data Filtering</span>
+                        <span class="tag">PHP CMS</span>
+                        <span class="tag">Data Architecture</span>
                     </div>
                     <h3>Institutional Data Vault</h3>
-                    <p>A secure, serverless PHP architecture designed to manage and dynamically filter high-volume institutional documents, strategic reports, and publications with real-time search indexing.</p>
-                    <div>
-                        <a href="https://digital-archive-mu.vercel.app/" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Live System &rarr;</a>
-                    </div>
+                    <p>A secure, serverless PHP architecture acting as a custom CMS. Designed to manage, organize, and dynamically filter high-volume strategic reports with an intuitive user interface.</p>
+                    <a href="https://digital-archive-mu.vercel.app/" target="_blank" class="project-link">View Application &rarr;</a>
                 </div>
             </article>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>Ready to upgrade your infrastructure?</h2>
-        <p>Whether you need to modernize a legacy PHP application or build a scalable data architecture from scratch, I can help.</p>
-        <a href="mailto:your.email@example.com" class="btn-outline">Initiate Contact</a>
+        <div class="contact-box">
+            <h2>Get In Touch</h2>
+            <p>Available for freelance opportunities and full-time roles.</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span>Name</span>
+                    Akash Kumar
+                </div>
+                <div class="contact-item">
+                    <span>Phone</span>
+                    <a href="tel:+918394870844">+91 8394870844</a>
+                </div>
+                <div class="contact-item">
+                    <span>Email</span>
+                    <a href="mailto:akashjnv007@gmail.com">akashjnv007@gmail.com</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Akash Kumar. Engineered for high performance.</p>
+        <p>&copy; 2026 Akash Kumar. Crafted with minimalism.</p>
     </footer>
 
 </body>
 </html>
-
